@@ -2,6 +2,6 @@ Here lies Jerod Santo's configuration files. Enjoy.
 
 INSTALLATION:
 
-1) Copy files to home directory: ~/
+1) Move files to home directory (eg- mv bashrc ~/.bashrc)
 2) reload config files (eg- source ~/.bashrc)
 3) Enjoy
