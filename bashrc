@@ -43,7 +43,6 @@ alias gba='git branch -a'
 alias gd='git diff | $EDITOR'
 
 #set environment variables
-export RUBYOPT=rubygems
 if [ -f /usr/bin/mate ];then
   alias e='mate'
   export EDITOR="mate -w"
