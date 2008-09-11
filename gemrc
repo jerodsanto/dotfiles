@@ -1,9 +1,4 @@
---- 
-:bulk_threshold: 1000
-:verbose: true
-:update_sources: true
+gem: --no-ri
 :sources: 
 - http://gems.rubyforge.org/
 - http://gems.github.com
-:backtrace: false
-:benchmark: false
