@@ -83,3 +83,6 @@ function mvcd() { mv $1 $2 && cd $2; }
 
 #this function allows scp'ing a file to remote and then immediately ssh'ing to same remote
 function scphh() { scp $1 $2  && ssh `echo $2 | sed ''s/:.*$//''` ; }
+
+#print external IP address
+function external_ip() { wget 'http://Www.whatismyip.org' -O - -o /dev/null && echo; }
