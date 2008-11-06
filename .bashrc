@@ -85,4 +85,7 @@ function mvcd() { mv $1 $2 && cd $2; }
 function scphh() { scp $1 $2  && ssh `echo $2 | sed ''s/:.*$//''` ; }
 
 #print external IP address
-function external_ip() { wget 'http://Www.whatismyip.org' -O - -o /dev/null && echo; }
+function external_ip() { wget 'http://my-ip.jerodsanto.net' -O - -o /dev/null; }
+
+#count number of files in current directory recursively
+function file_count() { find . -type f | wc -l; }
