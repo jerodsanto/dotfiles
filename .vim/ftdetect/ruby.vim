@@ -15,3 +15,6 @@ au BufNewFile,BufRead *.erb,*.rhtml			set filetype=eruby
 
 " Capistrano
 au BufNewFile,BufRead [cC]apfile                        set filetype=ruby
+
+" Rack
+au BufNewFile,BufRead *.ru                              set filetype=ruby
