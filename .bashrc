@@ -27,6 +27,7 @@ alias sl='ls'
 if [ "$os" = "OSX" ]; then
 	alias listening='netstat -an | grep LISTEN | grep -v STREAM'
   alias ls='ls -G'
+  alias flushdns='dscacheutil -flushcache'
 else
 	alias listening='netstat -anp | grep LISTEN | grep -v STREAM'
   eval "`dircolors -b`"
