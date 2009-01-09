@@ -2,6 +2,6 @@
 
 autodetach      on
 startup_message off
-captions always "%w"
+caption         always "%w"
 nethack         on
 hardstatus      alwayslastline "%H    (%C%a %M %d %Y)    Load: %l"
