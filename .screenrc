@@ -1,0 +1,5 @@
+# Jerod Santo's Screen settings
+
+# always have a status bar                                                                          
+hardstatus on                                                                                       
+hardstatus alwayslastline "%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
