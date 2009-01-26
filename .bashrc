@@ -26,6 +26,10 @@ fi
 alias ll='ls -lh'
 alias la='ls -A'
 alias sl='ls'
+alias h='history'
+alias rdp='rdesktop -a 16 -k en-us -u administrator'
+alias grep='grep --color=always'
+alias md='mkdir -p'
 
 # conditional aliasing
 if [ "$os" = "OSX" ]; then
@@ -37,11 +41,6 @@ else
   eval "`dircolors -b`"
   alias ls='ls --color=auto'
 fi
-
-# misc
-alias rdp='rdesktop -a 16 -k en-us -u administrator'
-alias grep='grep --color=always'
-alias md='mkdir -p'
 
 if [ -f /usr/bin/htop ];then
         alias top='htop'
