@@ -99,3 +99,14 @@ function parse_git_branch() {
 ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
 echo "["${ref#refs/heads/}"]"
 }
+
+# quick access to domain availability check
+function domainavailable() {
+  if whois $1 | grep "No match for" >&/dev/null; then
+    echo "$1 is available";
+    return 0;
+  else
+    echo "$1 is not available";
+    return 1;
+  fi
+}
