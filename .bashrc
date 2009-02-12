@@ -58,9 +58,15 @@ alias gba='git branch -a'
 alias gd='git diff | $EDITOR'
 
 
-#### ENVIRONMENT SETUP
+#### ENVIRONMENT VARIABLES
 
 export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:$PATH"
+
+# source ruby path separately if exists. for easy Ruby version switching
+if [ -f ~/.ruby_path ];then
+  source ~/.ruby_path
+fi
+
 if [ -f /usr/bin/mate ];then
   alias e='mate'
   export EDITOR="mate -w"
