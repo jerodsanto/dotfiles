@@ -64,6 +64,7 @@ export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:
 
 # source ruby path separately if exists. for easy Ruby version switching
 if [ -f ~/.ruby_path ];then
+  export ORIG_PATH=$PATH
   source ~/.ruby_path
 fi
 
