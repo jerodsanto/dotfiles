@@ -22,10 +22,6 @@ set tabstop=2
 set shiftwidth=2
 set smarttab
 
-" KEY MAPPINGS
-nnoremap <Space> <PageDown>
-nnoremap - <PageUp>
-
 " TEMP FILES
 set backupdir=/tmp " centralize temporary files please
 set directory=/tmp " partners backupdir setting
