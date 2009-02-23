@@ -1,5 +1,6 @@
 # Jerod Santo's Screen settings
 
+defscrollback   5000
 autodetach      on
 startup_message off
 caption         always "%w"
