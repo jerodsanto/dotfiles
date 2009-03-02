@@ -15,3 +15,10 @@ class Object
     (methods - Object.instance_methods).sort
   end
 end
+
+
+# includes Rails routes helpers
+def rails_routes
+  include ActionController::UrlWriter
+  default_url_options[:host] = 'example.com'
+end
