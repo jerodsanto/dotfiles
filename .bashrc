@@ -43,7 +43,7 @@ else
 fi
 
 if [ -f /usr/bin/htop ];then
-        alias top='htop'
+  alias top='htop'
 fi
 
 #git-specific
@@ -66,6 +66,11 @@ export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:
 if [ -f ~/.ruby_path ];then
   export ORIG_PATH=$PATH
   source ~/.ruby_path
+fi
+# same goes for git path
+if [ -f ~/.git_path ];then
+  export ORIG_PATH=$PATH
+  source ~/.git_path
 fi
 
 if [ -f /usr/bin/mate ];then
@@ -103,7 +108,7 @@ function file_count() { find . -type f | wc -l; }
 
 # determine current git branch
 function parse_git_branch() {
-ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
+ref=$(git symbolic-ref HEAD 2> /dev/null) || return
 echo "["${ref#refs/heads/}"]"
 }
 
