@@ -4,9 +4,10 @@
 
 # set my prompt
 function set_prompt() {
-local GREEN="\[\033[0;32m\]"
-local WHITE="\[\033[1;37m\]"
-PS1="\u@\h:\w$GREEN\$(parse_git_branch)$WHITE$ "
+local GREEN='\[\033[0;32m\]'
+local WHITE='\[\033[1;37m\]'
+local NULL='\[\033k\033\\\]'
+PS1="$NULL\u@\h:\w$GREEN\$(parse_git_branch)$WHITE$ "
 export PS1
 }
 set_prompt
