@@ -16,6 +16,9 @@ set wildmode=list:longest " make tab completion work like shell
 set scrolloff=3           " start scrolling viewport 3 lines ahead of cursor
 set incsearch             " inline search highlight
 
+" MACVIM
+set guifont=Inconsolata:h16
+
 " TABS AND SPACES
 set expandtab
 set tabstop=2

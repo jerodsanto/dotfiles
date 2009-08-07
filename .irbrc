@@ -33,3 +33,9 @@ def bm(repetitions=100, &block)
   end
   nil
 end
+
+# Toggle Rails logger to console and back to default
+def rails_log_to_console(toggle)
+  ActiveRecord::Base.logger = (toggle == true) ? Logger.new(STDOUT) : RAILS_DEFAULT_LOGGER
+  reload!
+end
