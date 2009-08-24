@@ -1,3 +1,4 @@
+require 'fileutils'
 FILES = %w(bashrc gemrc gitconfig irbrc screenrc vimrc vim)
 HOME  = ENV["HOME"]
 PWD   = File.dirname(__FILE__)
@@ -6,7 +7,7 @@ def symlink(source, target)
   puts "Linking #{target} => #{source}"
   if File.exist?(target)
     puts "  * deleting existing file #{target}"
-    File.unlink(target)
+    FileUtils.rm_rf(target)
   end
   File.symlink(source, target)
 end
