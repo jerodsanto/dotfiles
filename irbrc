@@ -1,12 +1,21 @@
 # Jerod Santo's irb settings
 # load libraries
-require 'rubygems'
 require 'pp'
-require 'wirble'
+require 'rubygems'
 
-# start wirble (with color)
-Wirble.init
-Wirble.colorize
+begin
+  require 'wirble'
+  Wirble.init
+  Wirble.colorize
+rescue LoadError
+  puts "***wirble disabled***"
+end
+
+begin
+  require 'looksee/shortcuts'
+rescue LoadError
+  puts "***looksee disabled***"
+end
 
 
 # Easily print methods local to an object's class
