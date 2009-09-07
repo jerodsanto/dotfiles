@@ -123,3 +123,18 @@ function domainavailable() {
     return 1;
   fi
 }
+
+# cd ... instead of cd ../..
+function cd() {
+  if [[ $1 =~ "..." ]]; then
+    let TIMES=${#1};
+    UPDIRS="";
+    while [ $TIMES -gt 1 ]; do
+      UPDIRS="$UPDIRS../"
+      let TIMES=TIMES-1;
+    done
+    builtin cd $UPDIRS;
+  else
+    builtin cd $1;
+  fi
+}
