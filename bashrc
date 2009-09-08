@@ -125,16 +125,16 @@ function domainavailable() {
 }
 
 # cd ... instead of cd ../..
-function cd() {
-  if [[ $1 =~ "..." ]]; then
-    let TIMES=${#1};
-    UPDIRS="";
-    while [ $TIMES -gt 1 ]; do
-      UPDIRS="$UPDIRS../"
-      let TIMES=TIMES-1;
-    done
-    builtin cd $UPDIRS;
+function cd () {
+  if [[ $# > 0 ]]; then
+    if [ ${1:0:2} == '..' ]; then
+      rest=${1:2}
+      rest=${rest//./../}
+      builtin cd "${1:0:2}/${rest}"
+    else
+      builtin cd "$1"
+    fi
   else
-    builtin cd $1;
+    builtin cd
   fi
 }
