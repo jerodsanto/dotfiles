@@ -18,7 +18,7 @@ set_prompt
 if echo $HOME | grep -q Users; then
   os="OSX"
 else
-  os="Linux"
+  os="LINUX"
 fi
 
 
@@ -47,7 +47,15 @@ if [ -f /usr/bin/htop ];then
   alias top='htop'
 fi
 
-#git-specific
+# rails
+alias sc='script/console'
+alias ss='script/server'
+alias rr='rake routes'
+alias rdbm='rake db:migrate'
+alias rdbr='rake db:rollback'
+alias rdbtp='rake db:test:prepare'
+
+# git
 alias ga='git add'
 alias gst='git status'
 alias gp='git push'

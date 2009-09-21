@@ -12,6 +12,24 @@ rescue LoadError
 end
 
 begin
+  require 'hirb'
+  # don't show [created|updated|deleted]_at fields from ActiveRecord tables
+  class Hirb::Helpers::MyActiveRecordTable < Hirb::Helpers::ActiveRecordTable
+    def self.render(rows, opts={})
+      rows = [rows] unless rows.is_a?(Array)
+      opts[:fields] = rows.first.class.columns.reject { |c| c.type == :datetime }.map { |c| c.name.to_sym }
+      super(rows, opts)
+    end
+  end
+  
+  Hirb.enable :output => {
+    "ActiveRecord::Base" => {:class => :my_active_record_table, :ancestor => true}
+  }
+rescue LoadError
+  puts "***hirb disabled***"
+end
+
+begin
   require 'looksee/shortcuts'
 rescue LoadError
   puts "***looksee disabled***"
