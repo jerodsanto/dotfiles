@@ -24,15 +24,7 @@ fi
 
 ### ALIASES
 
-alias ll='ls -lh'
-alias la='ls -A'
-alias sl='ls'
-alias h='history'
-alias rdp='rdesktop -a 16 -k en-us -u administrator'
-alias grep='grep --color=always'
-alias md='mkdir -p'
-
-# conditional aliasing
+# conditional aliases
 if [ "$os" = "OSX" ]; then
 	alias listening='netstat -an | grep LISTEN | grep -v STREAM'
   alias ls='ls -G'
@@ -47,24 +39,10 @@ if [ -f /usr/bin/htop ];then
   alias top='htop'
 fi
 
-# rails
-alias sc='script/console'
-alias ss='script/server'
-alias rr='rake routes'
-alias rdbm='rake db:migrate'
-alias rdbr='rake db:rollback'
-alias rdbtp='rake db:test:prepare'
-
-# git
-alias ga='git add'
-alias gst='git status'
-alias gp='git push'
-alias gl='git pull'
-alias gc='git commit -v'
-alias gca='git commit -v -a'
-alias gb='git branch'
-alias gba='git branch -a'
-alias gd='git diff | $EDITOR'
+# unconditional aliases
+if [ -f ~/.bash_aliases ]; then
+  source ~/.bash_aliases
+fi
 
 
 #### ENVIRONMENT VARIABLES

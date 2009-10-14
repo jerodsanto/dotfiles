@@ -1,5 +1,5 @@
 require 'fileutils'
-FILES = %w(bashrc gemrc gitconfig irbrc screenrc vimrc vim)
+FILES = %w(bashrc bash_aliases gemrc gitconfig irbrc screenrc vimrc vim)
 HOME  = ENV["HOME"]
 PWD   = File.dirname(__FILE__)
 
