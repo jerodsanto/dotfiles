@@ -61,8 +61,8 @@ if [ -f ~/.git_path ];then
 fi
 
 if [ -f /usr/bin/mate ];then
-  alias e='mate'
   export EDITOR="mate -w"
+  alias e='mate'
 elif [ -f /usr/bin/vim ];then
   export EDITOR=vim
   alias vi='vim'
@@ -78,7 +78,11 @@ fi
 function pps() { ps aux | grep "$@" | grep -v 'grep'; }
 
 # easy access to find's size search
-function findBigfiles() { find "$@" -size +10000k -exec du -h {} \; | sort -nr; }
+function find_big_files() { find "${1-.}" -size +10000k -exec du -h {} \; | sort -nr; }
+
+# managing broken symlinks
+function find_broken_symlinks() { find -x -L "${1-.}" -type l; }
+function rm_broken_symlinks() { find -x -L "${1-.}" -type l -exec rm {} +; }
 
 # add a few shortcut functions to copy/move and change directory at same time
 function cpcd() { cp $1 $2 && cd $2; }
@@ -100,7 +104,7 @@ echo "["${ref#refs/heads/}"]"
 }
 
 # quick access to domain availability check
-function domainavailable() {
+function domain_available() {
   if whois $1 | grep "No match for" >&/dev/null; then
     echo "$1 is available";
     return 0;
