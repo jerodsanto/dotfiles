@@ -1,6 +1,7 @@
 # Jerod Santo's git settings
 [core]
   excludesfile = /Users/jerod/.gitexcludes
+	autocrlf = input
 
 [user]
 	name = Jerod Santo
