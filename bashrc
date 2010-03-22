@@ -1,7 +1,5 @@
 # Jerod Santo's Bash settings
 
-### GENERAL
-
 # set my prompt
 function set_prompt() {
 local GREEN='\[\033[0;32m\]'
@@ -21,16 +19,14 @@ else
   os="LINUX"
 fi
 
-
-### ALIASES
-
 # conditional aliases
 if [ "$os" = "OSX" ]; then
-	alias listening='netstat -an | grep LISTEN | grep -v STREAM'
+  alias listening='netstat -an | grep LISTEN | grep -v STREAM'
   alias ls='ls -G'
   alias flushdns='dscacheutil -flushcache'
 else
-	alias listening='netstat -anp | grep LISTEN | grep -v STREAM'
+  alias listening='netstat -anp | grep LISTEN | grep -v STREAM'
+  alias apt='aptitude'
   eval "`dircolors -b`"
   alias ls='ls --color=auto'
 fi
@@ -43,9 +39,6 @@ fi
 if [ -f ~/.bash_aliases ]; then
   source ~/.bash_aliases
 fi
-
-
-#### ENVIRONMENT VARIABLES
 
 export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:$PATH"
 
@@ -70,9 +63,6 @@ else
   export EDITOR=vi
   alias vim='vi'
 fi
-
-
-### FUNCTIONS
 
 # removes returns for 'grep' on greps of ps output
 function pps() { ps aux | grep "$@" | grep -v 'grep'; }
