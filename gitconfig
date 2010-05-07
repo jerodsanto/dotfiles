@@ -1,15 +1,15 @@
 # Jerod Santo's git settings
 [core]
   excludesfile = /Users/jerod/.gitexcludes
-	autocrlf = input
+  autocrlf = input
 
 [user]
-	name = Jerod Santo
-	email = jerod.santo@gmail.com
+  name = Jerod Santo
+  email = jerod.santo@gmail.com
 
 [alias]
-	co = checkout
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  co = checkout
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
 [apply]
   whitespace = nowarn

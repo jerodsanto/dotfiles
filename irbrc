@@ -8,7 +8,7 @@ begin
   Wirble.init
   Wirble.colorize
 rescue LoadError
-  puts "***wirble disabled***"
+  puts "*** wirble disabled ***"
 end
 
 begin
@@ -21,18 +21,24 @@ begin
       super(rows, opts)
     end
   end
-  
+
   Hirb.enable :output => {
     "ActiveRecord::Base" => {:class => :my_active_record_table, :ancestor => true}
   }
 rescue LoadError
-  puts "***hirb disabled***"
+  puts "*** hirb disabled ***"
 end
 
 begin
-  require 'looksee/shortcuts'
+  require 'ap'
+
+  IRB::Irb.class_eval do
+    def output_value
+      ap @context.last_value
+    end
+  end
 rescue LoadError
-  puts "***looksee disabled***"
+  puts "*** awesome_print disabled ***"
 end
 
 
@@ -56,7 +62,7 @@ def bm(repetitions=100, &block)
   require 'benchmark'
 
   Benchmark.bmbm do |b|
-    b.report {repetitions.times &block} 
+    b.report {repetitions.times &block}
   end
   nil
 end
