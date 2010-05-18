@@ -23,6 +23,12 @@ rescue LoadError
   puts "*** awesome_print disabled ***"
 end
 
+begin
+  require 'interactive_editor'
+rescue
+  puts "*** interactive_editor disabled ***"
+end
+
 
 # Easily print methods local to an object's class
 class Object
