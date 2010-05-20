@@ -25,7 +25,7 @@ end
 
 begin
   require 'interactive_editor'
-rescue
+rescue LoadError
   puts "*** interactive_editor disabled ***"
 end
 
