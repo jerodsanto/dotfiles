@@ -1,6 +1,6 @@
 # Jerod Santo's irb settings
+
 # load libraries
-require 'pp'
 require 'rubygems'
 
 begin
@@ -21,6 +21,7 @@ begin
   end
 rescue LoadError
   puts "*** awesome_print disabled ***"
+  require 'pp'
 end
 
 begin
@@ -30,7 +31,7 @@ rescue LoadError
 end
 
 
-# Methods that are defined directly on this object's class
+# methods that are defined directly on this object's class
 class Object
   def local_methods
     (methods - self.class.superclass.instance_methods).sort
@@ -44,8 +45,8 @@ def rails_routes
   default_url_options[:host] = 'example.com'
 end
 
-# Quick benchmarking
-# Based on rue's irbrc => http://pastie.org/179534
+# quick benchmarking
+# based on rue's irbrc => http://pastie.org/179534
 def bm(repetitions=100, &block)
   require 'benchmark'
 
@@ -55,8 +56,8 @@ def bm(repetitions=100, &block)
   nil
 end
 
-# Toggle Rails logger to console and back to default
-def rails_log_to_console(toggle)
-  ActiveRecord::Base.logger = (toggle == true) ? Logger.new(STDOUT) : RAILS_DEFAULT_LOGGER
-  reload!
+# send Rails logs to console
+if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
+  require 'logger'
+  Object.const_set 'RAILS_DEFAULT_LOGGER', Logger.new(STDOUT)
 end
