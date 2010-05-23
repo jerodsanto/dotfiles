@@ -1,16 +1,6 @@
 # Jerod Santo's Bash settings
 
-# set my prompt
-function set_prompt() {
-local GREEN='\[\033[0;32m\]'
-local WHITE='\[\033[1;37m\]'
-local NULL='\[\033k\033\\\]'
-PS1="$NULL\u@\h:\w$GREEN\$(parse_git_branch)$WHITE$ "
-export PS1
-}
-set_prompt
-
-# find out what OS we're on
+# find out which OS we're on
 # OS X will have /Users
 # Linux will have /home
 if echo $HOME | grep -q Users; then
@@ -78,7 +68,7 @@ function rm_broken_symlinks() { find -x -L "${1-.}" -type l -exec rm {} +; }
 function cpcd() { cp $1 $2 && cd $2; }
 function mvcd() { mv $1 $2 && cd $2; }
 
-# this function allows scp'ing a file to remote and then immediately ssh'ing to same remote
+# allows scp'ing a file to remote and then immediately ssh'ing to same remote
 function scphh() { scp $1 $2  && ssh `echo $2 | sed ''s/:.*$//''` ; }
 
 # print external IP address
@@ -118,3 +108,13 @@ function cd () {
     builtin cd
   fi
 }
+
+function set_prompt() {
+  local GREEN='\[\033[0;32m\]'
+  local WHITE='\[\033[1;37m\]'
+  local NULL='\[\033k\033\\\]'
+  PS1="$NULL\u@\h:\w$GREEN\$(parse_git_branch)$WHITE$ "
+  export PS1
+}
+
+set_prompt
