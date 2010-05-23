@@ -1,9 +1,9 @@
---- 
+---
 benchmark: false
-gem: --no-ri
+gem: --no-ri --no-rdoc
 update_sources: true
 backtrace: false
 bulk_threshold: 1000
 verbose: true
-sources: 
+sources:
 - http://rubygems.org
