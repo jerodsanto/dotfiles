@@ -21,7 +21,7 @@ else
   alias ls='ls --color=auto'
 fi
 
-if [ -f /usr/bin/htop ];then
+if [ -f /usr/bin/htop ]; then
   alias top='htop'
 fi
 
@@ -30,15 +30,15 @@ if [ -f ~/.bash_aliases ]; then
   source ~/.bash_aliases
 fi
 
-export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:$PATH"
+export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 # source ruby path separately if exists. for easy Ruby version switching
-if [ -f ~/.ruby_path ];then
+if [ -f ~/.ruby_path ]; then
   export ORIG_PATH=$PATH
   source ~/.ruby_path
 fi
 # same goes for git path
-if [ -f ~/.git_path ];then
+if [ -f ~/.git_path ]; then
   export ORIG_PATH=$PATH
   source ~/.git_path
 fi
@@ -49,9 +49,11 @@ if [ -f /usr/bin/mate ];then
 elif [ -f /usr/bin/vim ];then
   export EDITOR=vim
   alias vi='vim'
+  alias e='vim'
 else
   export EDITOR=vi
   alias vim='vi'
+  alias e='vi'
 fi
 
 # removes returns for 'grep' on greps of ps output
