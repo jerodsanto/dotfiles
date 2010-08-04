@@ -20,6 +20,9 @@ set incsearch             " inline search highlight
 cabbr nt tabnew
 cabbr D NERDTreeToggle
 
+" MAPPINGS
+cmap w!! %!sudo tee > /dev/null %
+
 " MACVIM
 set guifont=Inconsolata:h18
 
