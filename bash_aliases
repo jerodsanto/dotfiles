@@ -1,7 +1,12 @@
 # general
-alias ll='ls -lh'
 alias la='ls -A'
 alias sl='ls'
+alias ll='ls -lh'
+alias lla='ls -lhA'
+alias lls='ls -lhS'
+alias llsr='ls -lhSr'
+alias lld='ls -lht'
+alias lldr='ls -lhtr'
 alias h='history'
 alias rdp='rdesktop -a 16 -k en-us -u administrator'
 alias grep='grep --color=always'
