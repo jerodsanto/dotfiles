@@ -2,6 +2,9 @@
 
 colorscheme vividchalk
 
+" Use pathogen to include all plugins under the ~/.vim/bundle directory
+call pathogen#runtime_append_all_bundles()
+
 set nocompatible            " no vi compatibility
 syntax on                   " Enable syntax highlighting
 filetype on                 " Enable filetype detection
@@ -9,7 +12,7 @@ filetype indent on          " Enable filetype-specific indenting
 filetype plugin on          " Enable filetype-specific plugins
 set expandtab               " insert spaces when tab key is pressed
 set tabstop=2               " 1 tab == 2 spaces
-set shiftwidth=2            " 1 indentaion == 2 spaces
+set shiftwidth=2            " 1 indentation == 2 spaces
 set backspace=2             " start, indent
 set nowrap                  " don't wrap text
 set nohls                   " turn off highlight on search
@@ -22,13 +25,26 @@ set pastetoggle=<F2>        " hit F2 before paste to avoid craziness
 set nofoldenable            " no code folding
 set list                    " show invisibles
 set listchars=tab:▸\ ,eol:¬ " use same invisibles as TextMate
+set nobackup                " do not backup files
+set noswapfile              " also do not create swap files. I save often & use screen
 
 " ABBREVIATIONS
 cabbr nt tabnew
 cabbr D NERDTreeToggle
 
 " MAPPINGS
+" Easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" sudo make me a sandwich
 cmap w!! w !sudo tee % > /dev/null
+
+" tcomment invoked via CMD-/
+nmap <D-/> gcc " toggle comments for current line
+vmap <D-/> gcgv " toggle comments for current region
 
 " Replicate textmate CMD-[ and CMD-] for indentation
 nmap <D-[> <<
@@ -56,9 +72,3 @@ nmap <S-left> v
 vmap <S-left> h
 nmap <S-h> vh
 vmap <S-h> h
-
-" TEMP FILES
-set backupdir=/tmp " centralize temporary files please
-set directory=/tmp " partners backupdir setting
-
-runtime macros/matchit.vim " extend % matching to include if/else/etc
