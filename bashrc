@@ -43,6 +43,9 @@ if [ -f ~/.git_path ]; then
   source ~/.git_path
 fi
 
+# force vim out of latin1 encoding on machines with broken locales
+export LC_CTYPE=en_US.UTF-8
+
 if [ -f /usr/bin/mate ];then
   export EDITOR="mate -w"
   alias e='mate'
