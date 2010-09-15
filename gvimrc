@@ -9,3 +9,9 @@ if has("gui_running")
   " autohide the toolbar
   set guioptions=egmrt
 endif
+
+if has("gui_macvim")
+  " use CMD-T
+  macmenu &File.New\ Tab key=<nop>
+  map <D-t> :CommandT<CR>
+endif
