@@ -1,5 +1,6 @@
 " Jerod Santo's Vim settings
 
+set encoding=utf-8 " this might get me in trouble at some point...
 colorscheme vividchalk
 
 " Use pathogen to include all plugins under the ~/.vim/bundle directory
