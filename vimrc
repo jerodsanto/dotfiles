@@ -73,3 +73,7 @@ nmap <S-left> v
 vmap <S-left> h
 nmap <S-h> vh
 vmap <S-h> h
+
+" STATUSLINE
+set statusline=%<\ %f\ %{fugitive#statusline()}%m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+set laststatus=2
