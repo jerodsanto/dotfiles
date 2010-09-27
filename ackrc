@@ -1,2 +1,2 @@
 --type-add=ruby=.haml
---type-add=js=.j
+--type-add=js=.j,.ejs
