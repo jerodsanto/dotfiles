@@ -31,17 +31,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-
-# source ruby path separately if exists. for easy Ruby version switching
-if [ -f ~/.ruby_path ]; then
-  export ORIG_PATH=$PATH
-  source ~/.ruby_path
-fi
-# same goes for git path
-if [ -f ~/.git_path ]; then
-  export ORIG_PATH=$PATH
-  source ~/.git_path
-fi
+# rvm ftw
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
 
 if [ -f /usr/bin/mate ];then
   export EDITOR="mate -w"
