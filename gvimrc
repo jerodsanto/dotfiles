@@ -1,6 +1,6 @@
 " Jerod Santo's MacVim settings
 
-colorscheme vividchalk
+colorscheme tubster
 set guifont=Inconsolata:h17
 set linespace=1
 set number
