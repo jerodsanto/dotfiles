@@ -34,10 +34,10 @@ export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 # rvm ftw
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
 
-if [ -f /usr/bin/mate ];then
+if [ -f /usr/bin/mate ]; then
   export EDITOR="mate -w"
   alias e='mate'
-elif [ -f /usr/bin/vim ];then
+elif [ -f /usr/bin/vim ]; then
   export EDITOR=vim
   alias vi='vim'
   alias e='vim'
@@ -111,3 +111,6 @@ function set_prompt() {
 }
 
 set_prompt
+
+# certain machines need some local settings that I don't want to store here
+if [ -f ~/.bash_local ]; then source ~/.bash_local ; fi

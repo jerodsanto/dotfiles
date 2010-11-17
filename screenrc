@@ -5,6 +5,5 @@ autodetach      on
 startup_message off
 caption         always "%w"
 nethack         on
-shell           -bash
 shelltitle      "$ |bash"
 hardstatus      alwayslastline "%H    (%C%a %M %d %Y)    Load: %l"
