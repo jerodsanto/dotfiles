@@ -19,6 +19,7 @@ alias rr='rake routes'
 alias rdbm='rake db:migrate'
 alias rdbr='rake db:rollback'
 alias rdbtp='rake db:test:prepare'
+alias annotate='annotate --position before --show-indexes --exclude tests'
 
 # git
 alias ga='git add'
