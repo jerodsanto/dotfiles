@@ -10,7 +10,7 @@ else
 fi
 
 # conditional aliases
-if [ "$os" = "OSX" ]; then
+if [[ "$os" = "OSX" ]]; then
   alias listening='netstat -an | grep LISTEN | grep -v STREAM'
   alias ls='ls -G'
   alias flushdns='dscacheutil -flushcache'
@@ -21,12 +21,12 @@ else
   alias ls='ls --color=auto'
 fi
 
-if [ -f /usr/bin/htop ]; then
+if [[ -x `which htop` ]]; then
   alias top='htop'
 fi
 
 # unconditional aliases
-if [ -f ~/.bash_aliases ]; then
+if [[ -f "~/.bash_aliases" ]]; then
   source ~/.bash_aliases
 fi
 
@@ -34,10 +34,10 @@ export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 # rvm ftw
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
 
-if [ -f /usr/bin/mate ]; then
+if [[ -x `which mate` ]]; then
   export EDITOR="mate -w"
   alias e='mate'
-elif [ -f /usr/bin/vim ]; then
+elif [[ -x `which vim` ]]; then
   export EDITOR=vim
   alias vi='vim'
   alias e='vim'
@@ -72,8 +72,8 @@ function file_count() { find . -type f | wc -l; }
 
 # determine current git branch
 function parse_git_branch() {
-ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-echo "["${ref#refs/heads/}"]"
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo "["${ref#refs/heads/}"]"
 }
 
 # quick access to domain availability check
