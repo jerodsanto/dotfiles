@@ -1,3 +1,4 @@
 --type-add=ruby=.haml
 --type-add=js=.j,.ejs
 --type-add=css=.sass,.scss,.less
+--type-add=html=.tpl
