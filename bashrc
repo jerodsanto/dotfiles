@@ -21,14 +21,10 @@ else
   alias ls='ls --color=auto'
 fi
 
-if [[ -x `which htop` ]]; then
-  alias top='htop'
-fi
+if [[ -x `which htop` ]]; then alias top='htop'; fi
 
 # unconditional aliases
-if [[ -f "~/.bash_aliases" ]]; then
-  source ~/.bash_aliases
-fi
+if [[ -s "$HOME/.bash_aliases" ]]; then source "$HOME/.bash_aliases"; fi
 
 export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 # rvm ftw
