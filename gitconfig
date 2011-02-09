@@ -34,3 +34,6 @@
   added = yellow
   changed = green
   untracked = cyan
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
