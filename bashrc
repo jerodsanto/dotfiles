@@ -66,6 +66,9 @@ function external_ip() { wget 'http://my-ip.heroku.com' -O - -o /dev/null; }
 # count number of files in current directory recursively
 function file_count() { find . -type f | wc -l; }
 
+# open man pages in textmate
+function mman() { man "$@" | col -bx | mate; }
+
 # determine current git branch
 function parse_git_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
