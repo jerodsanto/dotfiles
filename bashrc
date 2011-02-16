@@ -1,50 +1,42 @@
 # Jerod Santo's Bash settings
 
-# find out which OS we're on
-# OS X will have /Users
-# Linux will have /home
-if echo $HOME | grep -q Users; then
-  os="OSX"
-else
-  os="LINUX"
-fi
-
-# conditional aliases
-if [[ "$os" = "OSX" ]]; then
-  alias listening='netstat -an | grep LISTEN | grep -v STREAM'
-  alias ls='ls -G'
-  alias flushdns='dscacheutil -flushcache'
-else
-  alias listening='netstat -anp | grep LISTEN | grep -v STREAM'
-  alias apt='aptitude'
-  eval "`dircolors -b`"
-  alias ls='ls --color=auto'
-fi
-
-if [[ -x `which htop` ]]; then alias top='htop'; fi
-
 # unconditional aliases
 if [[ -s "$HOME/.bash_aliases" ]]; then source "$HOME/.bash_aliases"; fi
 
+# conditional aliases
+if [[ `uname` = "Darwin" ]]; then
+  alias listening="netstat -an | grep LISTEN | grep -v STREAM"
+  alias ls="ls -G"
+  alias flushdns="dscacheutil -flushcache"
+else
+  alias listening="netstat -anp | grep LISTEN | grep -v STREAM"
+  alias apt="aptitude"
+  eval "`dircolors -b`"
+  alias ls="ls --color=auto"
+fi
+
+if [[ -x `which htop` ]]; then alias top="htop"; fi
+
+if [[ -x `which mate` ]]; then
+  export EDITOR="mate -w"
+  alias e="mate"
+elif [[ -x `which vim` ]]; then
+  export EDITOR=vim
+  alias vi="vim"
+  alias e="vim"
+else
+  export EDITOR=vi
+  alias vim="vi"
+  alias e="vi"
+fi
+
+export HISTSIZE=10000
 export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 # rvm ftw
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
 
-if [[ -x `which mate` ]]; then
-  export EDITOR="mate -w"
-  alias e='mate'
-elif [[ -x `which vim` ]]; then
-  export EDITOR=vim
-  alias vi='vim'
-  alias e='vim'
-else
-  export EDITOR=vi
-  alias vim='vi'
-  alias e='vi'
-fi
-
-# removes returns for 'grep' on greps of ps output
-function pps() { ps aux | grep "$@" | grep -v 'grep'; }
+# removes returns for "grep" on greps of ps output
+function pps() { ps aux | grep "$@" | grep -v "grep"; }
 
 # easy access to find's size search
 function find_big_files() { find "${1-.}" -size +10000k -exec du -h {} \; | sort -nr; }
@@ -61,7 +53,7 @@ function mvcd() { mv $1 $2 && cd $2; }
 function scphh() { scp $1 $2  && ssh `echo $2 | sed ''s/:.*$//''` ; }
 
 # print external IP address
-function external_ip() { wget 'http://my-ip.heroku.com' -O - -o /dev/null; }
+function external_ip() { wget "http://my-ip.heroku.com" -O - -o /dev/null; }
 
 # count number of files in current directory recursively
 function file_count() { find . -type f | wc -l; }
@@ -89,7 +81,7 @@ function domain_available() {
 # cd ... instead of cd ../..
 function cd () {
   if [[ $# > 0 ]]; then
-    if [ ${1:0:2} == '..' ]; then
+    if [ ${1:0:2} == ".." ]; then
       rest=${1:2}
       rest=${rest//./../}
       builtin cd "${1:0:2}/${rest}"
@@ -112,4 +104,4 @@ function set_prompt() {
 set_prompt
 
 # certain machines need some local settings that I don't want to store here
-if [ -f ~/.bash_local ]; then source ~/.bash_local ; fi
+if [[ -s "$HOME/.bash_local" ]]; then source "$HOME/.bash_local"; fi
