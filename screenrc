@@ -1,9 +1,9 @@
 # Jerod Santo's Screen settings
 
-defscrollback   5000
+escape          ^za
+defscrollback   10000
 autodetach      on
 startup_message off
-caption         always "%w"
 nethack         on
 shelltitle      "$ |bash"
-hardstatus      alwayslastline "%H    (%C%a %M %d %Y)    Load: %l"
+hardstatus      alwayslastline "%w%=%H  (%C%a %M %d %Y)  Load: %l"
