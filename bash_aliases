@@ -1,38 +1,39 @@
 # general
-alias la='ls -A'
-alias sl='ls'
-alias ll='ls -lh'
-alias lla='ls -lhA'
-alias lls='ls -lhS'
-alias llsr='ls -lhSr'
-alias lld='ls -lht'
-alias lldr='ls -lhtr'
-alias h='history'
-alias rdp='rdesktop -a 16 -k en-us -u administrator'
-alias grep='grep --color=always'
-alias md='mkdir -p'
+alias la="ls -A"
+alias sl="ls"
+alias ll="ls -lh"
+alias lla="ls -lhA"
+alias lls="ls -lhS"
+alias llsr="ls -lhSr"
+alias lld="ls -lht"
+alias lldr="ls -lhtr"
+alias h="history"
+alias rdp="rdesktop -a 16 -k en-us -u administrator"
+alias grep="grep --color=always"
+alias md="mkdir -p"
 alias lol="echo oh no you didn\'t\!"
 
 # rails
-alias sc='script/console'
-alias ss='script/server'
-alias rr='rake routes'
-alias rdbm='rake db:migrate'
-alias rdbr='rake db:rollback'
-alias rdbtp='rake db:test:prepare'
-alias rdbmtp='rake db:migrate && rake db:test:prepare'
-alias annotate='annotate --position before --show-indexes --exclude tests'
+alias sc="script/console"
+alias ss="script/server"
+alias rr="rake routes"
+alias rdbm="rake db:migrate"
+alias rdbr="rake db:rollback"
+alias rdbtp="rake db:test:prepare"
+alias rdbmtp="rake db:migrate && rake db:test:prepare"
+alias annotate="annotate --position before --show-indexes --exclude tests"
 
 # git
-alias ga='git add'
-alias gst='git status'
-alias gp='git push'
-alias gpom='git push origin master'
-alias gl='git pull'
-alias glom='git pull origin master'
-alias gc='git commit -v'
-alias gca='git commit -v -a'
-alias gb='git branch'
-alias gba='git branch -a'
-alias gd='git diff | $EDITOR'
-alias gh='github'
+alias ga="git add"
+alias gst="git status"
+alias gp="git push"
+alias gpom="git push origin master"
+alias gl="git pull"
+alias glom="git pull origin master"
+alias gf="git fetch"
+alias gc="git commit -v"
+alias gca="git commit -v -a"
+alias gb="git branch"
+alias gba="git branch -a"
+alias gd="git diff | $EDITOR"
+alias gh="github"
