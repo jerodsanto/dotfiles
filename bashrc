@@ -91,6 +91,7 @@ function cd () {
   else
     builtin cd
   fi
+  ls
 }
 
 function set_prompt() {
