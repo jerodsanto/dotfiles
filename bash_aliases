@@ -13,6 +13,19 @@ alias grep="grep --color=always"
 alias md="mkdir -p"
 alias lol="echo oh no you didn\'t\!"
 
+if [[ `uname` = "Darwin" ]]; then
+  alias listening="netstat -an | grep LISTEN | grep -v STREAM"
+  alias ls="ls -G"
+  alias flushdns="dscacheutil -flushcache"
+else
+  alias listening="netstat -anp | grep LISTEN | grep -v STREAM"
+  alias apt="aptitude"
+  eval "`dircolors -b`"
+  alias ls="ls --color=auto"
+fi
+
+if [[ -x `which htop` ]]; then alias top="htop"; fi
+
 # rails
 alias sc="script/console"
 alias ss="script/server"

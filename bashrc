@@ -1,33 +1,14 @@
 # Jerod Santo's Bash settings
 
-# unconditional aliases
+# aliases
 if [[ -s "$HOME/.bash_aliases" ]]; then source "$HOME/.bash_aliases"; fi
-
-# conditional aliases
-if [[ `uname` = "Darwin" ]]; then
-  alias listening="netstat -an | grep LISTEN | grep -v STREAM"
-  alias ls="ls -G"
-  alias flushdns="dscacheutil -flushcache"
-else
-  alias listening="netstat -anp | grep LISTEN | grep -v STREAM"
-  alias apt="aptitude"
-  eval "`dircolors -b`"
-  alias ls="ls --color=auto"
-fi
-
-if [[ -x `which htop` ]]; then alias top="htop"; fi
 
 if [[ -x `which mate` ]]; then
   export EDITOR="mate -w"
-  alias e="mate"
 elif [[ -x `which vim` ]]; then
   export EDITOR=vim
-  alias vi="vim"
-  alias e="vim"
 else
   export EDITOR=vi
-  alias vim="vi"
-  alias e="vi"
 fi
 
 export HISTSIZE=10000
