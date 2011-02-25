@@ -13,8 +13,13 @@ fi
 
 export HISTSIZE=10000
 export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-# rvm ftw
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
+
+# rvm ftw, but it must be sourced before functions or it will override my "cd"
+if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
+  source "$HOME/.rvm/scripts/rvm"
+elif [[ -s "/usr/local/lib/rvm" ]]; then
+  source "/usr/local/lib/rvm"
+fi
 
 # removes returns for "grep" on greps of ps output
 function pps() { ps aux | grep "$@" | grep -v "grep"; }
