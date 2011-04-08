@@ -17,6 +17,7 @@ if [[ `uname` = "Darwin" ]]; then
   alias listening="netstat -an | grep LISTEN | grep -v STREAM"
   alias ls="ls -G"
   alias flushdns="dscacheutil -flushcache"
+  alias ql="qlmanage -p 2> /dev/null"
 else
   alias listening="netstat -anp | grep LISTEN | grep -v STREAM"
   alias apt="aptitude"
