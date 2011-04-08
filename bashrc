@@ -64,8 +64,8 @@ function domain_available() {
   fi
 }
 
-# cd ... instead of cd ../..
 function cd () {
+  # cd ... instead of cd ../..
   if [[ $# > 0 ]]; then
     if [ ${1:0:2} == ".." ]; then
       rest=${1:2}
@@ -75,9 +75,18 @@ function cd () {
       builtin cd "$1"
     fi
   else
-    builtin cd
+    builtin cd "$@"
   fi
-  ls
+  # do that rvm thang
+  if type rvm &>/dev/null; then
+    local result=$?
+    __rvm_project_rvmrc
+    __rvm_after_cd
+    ls
+    return $result
+  else
+    ls
+  fi
 }
 
 # allow for preset screen sessions
