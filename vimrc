@@ -1,16 +1,18 @@
 " Jerod Santo's Vim settings
 
-set encoding=utf-8 " this might get me in trouble at some point...
-colorscheme vividchalk
+colorscheme vividchalk " this will be overridden in gvimrc
 
-" Use pathogen to include all plugins under the ~/.vim/bundle directory
+filetype off
+" load all plugins and their docs in  ~/.vim/bundle
 call pathogen#runtime_append_all_bundles()
-
-set nocompatible            " no vi compatibility
+call pathogen#helptags()
+filetype plugin indent on   " Enable filetype plugin and indent detection
 syntax on                   " Enable syntax highlighting
-filetype on                 " Enable filetype detection
-filetype indent on          " Enable filetype-specific indenting
-filetype plugin on          " Enable filetype-specific plugins
+
+let mapleader = ","         " this is much easier to type than default \
+
+set encoding=utf-8
+set nocompatible            " no vi compatibility
 set expandtab               " insert spaces when tab key is pressed
 set tabstop=2               " 1 tab == 2 spaces
 set shiftwidth=2            " 1 indentation == 2 spaces
@@ -18,6 +20,9 @@ set backspace=2             " start, indent
 set nowrap                  " don't wrap text
 set nohls                   " turn off highlight on search
 set incsearch               " but highlight inline search
+set ignorecase              " case-insensitive search by default
+set smartcase               " case-sensitive search if uppcase is used
+set gdefault                " global substitution by default
 set title                   " don't inherit the terminal's title
 set wildmenu                " turn on tab completion menu
 set wildmode=list:longest   " make tab completion work like shell
@@ -28,13 +33,22 @@ set list                    " show invisibles
 set listchars=tab:▸\ ,eol:¬ " use same invisibles as TextMate
 set nobackup                " do not backup files
 set noswapfile              " also do not create swap files. I save often & use screen
+set laststatus=2            " always show a status line
+set statusline=%<\ %f\ %{fugitive#statusline()}%m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
 " ABBREVIATIONS
 cabbr nt tabnew
 cabbr D NERDTreeToggle
 
 " MAPPINGS
-" Easy window navigation
+" use tab to navigate curly braces instead of %
+nnoremap <tab> %
+vnoremap <tab> %
+
+" ,I toggles invisibles
+nnoremap <leader>I :set nolist!<CR>
+
+" easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -43,17 +57,13 @@ map <C-l> <C-w>l
 " sudo make me a sandwich
 cmap w!! w !sudo tee % > /dev/null
 
-" tcomment invoked via CMD-/
-nmap <D-/> gcc " toggle comments for current line
-vmap <D-/> gcgv " toggle comments for current region
-
-" Replicate textmate CMD-[ and CMD-] for indentation
+" replicate textmate CMD-[ and CMD-] for indentation
 nmap <D-[> <<
 nmap <D-]> >>
 vmap <D-[> <gv
 vmap <D-]> >gv
 
-" Replicate textmate shift arrow/movement in order to select stuff
+" replicate textmate shift arrow/movement in order to select stuff
 nmap <S-up> vk
 vmap <S-up> k
 nmap <S-k> vk
@@ -74,6 +84,6 @@ vmap <S-left> h
 nmap <S-h> vh
 vmap <S-h> h
 
-" STATUSLINE
-set statusline=%<\ %f\ %{fugitive#statusline()}%m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
-set laststatus=2
+" AUTO COMMANDS
+" remove trailing whitespace before write
+autocmd BufWritePre * :%s/\s\+$//e
