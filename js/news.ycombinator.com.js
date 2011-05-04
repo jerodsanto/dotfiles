@@ -1,11 +1,10 @@
 // single item page
 if (window.location.pathname === "/item") {
-  var $wrapper    = $("center table:first");
-  var $header     = $wrapper.find("tr:eq(0) td");
-  var $submission = $wrapper.find("tr:eq(3) table:eq(0)").find("tr:eq(3) td:last");
-  var $comments   = $wrapper.find("tr:eq(3) table:eq(1)");
-  var $roots      = $comments.find("td img[width=0]").closest("tr").parent().closest("tr");
-
+  var $wrapper      = $("center table:first");
+  var $header       = $wrapper.find("tr:eq(0) td");
+  var $submission   = $wrapper.find("tr:eq(3) table:eq(0)").find("tr:eq(3) td:last");
+  var $commentTable = $wrapper.find("tr:eq(3) table:eq(1)");
+  var $comments     = $commentTable.find("> tbody > tr");
 
   // linkify submission text links
   $submission.html($submission.html().replace(/(https?:\/\/.*?)[\s|<]/g, function() {
@@ -21,25 +20,22 @@ if (window.location.pathname === "/item") {
     return "<a href='" +url + "' target='_blank'>" + url + "</a>" + terminator;
   }));
 
-  // thread folding
-  $roots.each(function(index) {
-    $(this)
-      .addClass("root")
-        .find(".comhead")
-        .append(" <a href='javascript:void(0);' class='fold'>[-]</a>");
+  // comment thread folding
+  $comments.filter(":has(td img[width=0])").addClass("root");
+  $comments.addClass("comment").each(function() {
+    $(this).find(".comhead").append(" <a href='javascript:void(0);' class='fold'>[-]</a>");
   });
 
   $("a.fold").toggle(function() {
     $(this)
-      .closest("tr.root")
-        .nextUntil(".root")
+      .closest("tr.comment")
+        .nextUntil("tr.root")
         .hide()
       .end()
     .end().html("[+]");
   }, function() {
-    var $anchor = $(this);
     $(this)
-      .closest("tr.root")
+      .closest("tr.comment")
         .nextUntil(".root")
         .show()
       .end()
