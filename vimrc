@@ -57,12 +57,6 @@ map <C-l> <C-w>l
 " sudo make me a sandwich
 cmap w!! w !sudo tee % > /dev/null
 
-" replicate textmate CMD-[ and CMD-] for indentation
-nmap <D-[> <<
-nmap <D-]> >>
-vmap <D-[> <gv
-vmap <D-]> >gv
-
 " replicate textmate shift arrow/movement in order to select stuff
 nmap <S-up> vk
 vmap <S-up> k
