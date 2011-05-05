@@ -36,17 +36,14 @@ set noswapfile              " also do not create swap files. I save often & use 
 set laststatus=2            " always show a status line
 set statusline=%<\ %f\ %{fugitive#statusline()}%m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
-" ABBREVIATIONS
-cabbr nt tabnew
-cabbr D NERDTreeToggle
+" easy access to nerd tree
+nnoremap <leader>d :NERDTreeToggle<cr>
+" toggles invisibles
+nnoremap <leader>i :set nolist!<CR>
 
-" MAPPINGS
 " use tab to navigate curly braces instead of %
 nnoremap <tab> %
 vnoremap <tab> %
-
-" ,I toggles invisibles
-nnoremap <leader>I :set nolist!<CR>
 
 " easy window navigation
 map <C-h> <C-w>h
@@ -78,6 +75,5 @@ vmap <S-left> h
 nmap <S-h> vh
 vmap <S-h> h
 
-" AUTO COMMANDS
 " remove trailing whitespace before write
 autocmd BufWritePre * :%s/\s\+$//e
