@@ -45,6 +45,9 @@ nnoremap <leader>i :set nolist!<CR>
 nnoremap <tab> %
 vnoremap <tab> %
 
+" <S-=> (aka - +) aligns variable assignments in visual mode
+vnoremap + :Align =<CR>
+
 " easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
