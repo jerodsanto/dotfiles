@@ -22,4 +22,13 @@ if has("gui_macvim")
   " use CMD-T
   macmenu &File.New\ Tab key=<nop>
   map <D-t> :CommandT<CR>
+  " replicate textmate shift arrow in order to select stuff
+  nmap <S-up> Vk
+  vmap <S-up> k
+  nmap <S-right> vl
+  vmap <S-right> l
+  nmap <S-down> Vj
+  vmap <S-down> j
+  nmap <S-left> v
+  vmap <S-left> h
 endif

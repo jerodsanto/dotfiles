@@ -37,7 +37,7 @@ set laststatus=2            " always show a status line
 set statusline=%<\ %f\ %{fugitive#statusline()}%m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
 " easy access to nerd tree
-nnoremap <leader>d :NERDTreeToggle<cr>
+nnoremap <leader>d :NERDTreeToggle<CR>
 " toggles invisibles
 nnoremap <leader>i :set nolist!<CR>
 " easy pasting in command-line vim
@@ -60,25 +60,14 @@ map <C-l> <C-w>l
 cmap w!! w !sudo tee % > /dev/null
 
 " replicate textmate shift arrow/movement in order to select stuff
-nmap <S-up> vk
-vmap <S-up> k
-nmap <S-k> vk
-vmap <S-k> k
-
-nmap <S-right> vl
-vmap <S-right> l
-nmap <S-l> vl
-vmap <S-l> l
-
-nmap <S-down> vj
-vmap <S-down> j
-nmap <S-j> vj
-vmap <S-j> j
-
-nmap <S-left> v
-vmap <S-left> h
 nmap <S-h> vh
 vmap <S-h> h
+nmap <S-j> vj
+vmap <S-j> j
+nmap <S-k> vk
+vmap <S-k> k
+nmap <S-l> vl
+vmap <S-l> l
 
 " remove trailing whitespace before write
 autocmd BufWritePre * :%s/\s\+$//e
