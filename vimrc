@@ -40,6 +40,8 @@ set statusline=%<\ %f\ %{fugitive#statusline()}%m%r%y%=%-35.(line:\ %l\ of\ %L,\
 nnoremap <leader>d :NERDTreeToggle<cr>
 " toggles invisibles
 nnoremap <leader>i :set nolist!<CR>
+" easy pasting in command-line vim
+imap <leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 
 " use tab to navigate curly braces instead of %
 nnoremap <tab> %
