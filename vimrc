@@ -1,18 +1,29 @@
 " Jerod Santo's Vim settings
 
 colorscheme vividchalk " this will be overridden in gvimrc
-
-filetype off
-" load all plugins and their docs in  ~/.vim/bundle
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-filetype plugin indent on   " Enable filetype plugin and indent detection
-syntax on                   " Enable syntax highlighting
-
-let mapleader = ","         " this is much easier to type than default \
-
+set nocompatible       " no vi compatibility
 set encoding=utf-8
-set nocompatible            " no vi compatibility
+
+" begin Vundle to manage plugins
+filetype off
+set rtp+=~/.vim/vundle/
+call vundle#rc()
+
+Bundle "tpope/vim-surround"
+Bundle "tpope/vim-endwise"
+Bundle "tpope/vim-fugitive"
+Bundle "tpope/vim-rails"
+Bundle "mileszs/ack.vim"
+Bundle "scrooloose/nerdtree"
+Bundle "scrooloose/nerdcommenter"
+Bundle "mhz/vim-matchit"
+Bundle "tsaleh/vim-align"
+Bundle "vim-scripts/Command-T"
+
+filetype plugin indent on   " Enable filetype plugin and indent detection
+" end Vundle
+
+syntax on                   " Enable syntax highlighting
 set expandtab               " insert spaces when tab key is pressed
 set tabstop=2               " 1 tab == 2 spaces
 set shiftwidth=2            " 1 indentation == 2 spaces
@@ -36,6 +47,7 @@ set noswapfile              " also do not create swap files. I save often & use 
 set laststatus=2            " always show a status line
 set statusline=%<\ %f\ %{fugitive#statusline()}%m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
+let mapleader = ","         " this is much easier to type than default \
 " easy access to nerd tree
 nnoremap <leader>d :NERDTreeToggle<CR>
 " toggles invisibles
