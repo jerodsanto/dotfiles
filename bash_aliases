@@ -11,6 +11,7 @@ alias h="history"
 alias rdp="rdesktop -a 16 -k en-us -u administrator"
 alias grep="grep --color=always"
 alias md="mkdir -p"
+alias e="$EDITOR"
 alias lol="echo oh no you didn\'t\!"
 
 if [[ `uname` = "Darwin" ]]; then
