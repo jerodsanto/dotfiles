@@ -17,6 +17,8 @@ task :install do
   FILES.each do |file|
     symlink "#{PWD}/#{file}", "#{HOME}/.#{file}"
   end
+  puts "Installing Vim plugins"
+  system "vim -u #{HOME}/.vim/bundles.vim +BundleInstall +q"
 end
 
 desc "Uninstall all dotfiles"
