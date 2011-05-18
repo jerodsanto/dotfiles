@@ -32,6 +32,8 @@ set laststatus=2            " always show a status line
 set statusline=%<\ %f\ %{fugitive#statusline()}%m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
 let mapleader = ","         " this is much easier to type than default \
+" quit just current buffer
+nnoremap <leader>q :bd<CR>
 " ; is easier than :
 nnoremap ; :
 " easy access to nerd tree
