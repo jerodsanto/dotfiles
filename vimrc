@@ -44,8 +44,8 @@ nnoremap <leader>i :set nolist!<CR>
 imap <leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 
 " use tab to navigate curly braces instead of %
-nnoremap <tab> %
-vnoremap <tab> %
+nmap <tab> %
+vmap <tab> %
 
 " <S-=> (aka - +) aligns variable assignments in visual mode
 vnoremap + :Align =<CR>
