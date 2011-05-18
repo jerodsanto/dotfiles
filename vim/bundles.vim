@@ -3,6 +3,7 @@ filetype off
 set rtp+=~/.vim/vundle/
 call vundle#rc()
 
+Bundle "vim-ruby/vim-ruby"
 Bundle "tpope/vim-surround"
 Bundle "tpope/vim-endwise"
 Bundle "tpope/vim-fugitive"
