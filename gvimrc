@@ -3,14 +3,10 @@
 colorscheme tubster
 set guifont=Inconsolata:h17
 set linespace=1
-set number
-
-if has("gui_running")
-  " autohide the toolbar
-  set guioptions=egmrt
-endif
 
 if has("gui_macvim")
+  " autohide the toolbar
+  set guioptions=egmrt
   " replicate textmate CMD-[ and CMD-] for indentation
   nmap <D-[> <<
   nmap <D-]> >>
