@@ -17,8 +17,8 @@ export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 # rvm ftw, but it must be sourced before functions or it will override my "cd"
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
   source "$HOME/.rvm/scripts/rvm"
-elif [[ -s "/usr/local/lib/rvm" ]]; then
-  source "/usr/local/lib/rvm"
+elif [[ -s "/usr/local/rvm/scripts/rvm" ]]; then
+  source "/usr/local/rvm/scripts/rvm"
 fi
 
 # removes returns for "grep" on greps of ps output
