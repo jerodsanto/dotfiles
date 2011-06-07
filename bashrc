@@ -10,8 +10,13 @@ elif [[ -x `which vim` ]]; then
 else
   export EDITOR=vi
 fi
+# have a big history and share it across bashes
+export HISTCONTROL=ignoredups:erasedups
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-export HISTSIZE=10000
 export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 # rvm ftw, but it must be sourced before functions or it will override my "cd"
