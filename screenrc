@@ -1,9 +1,15 @@
 # Jerod Santo's Screen settings
 
-escape          ^za
+escape          ^Oo
 defscrollback   10000
 autodetach      on
 startup_message off
 nethack         on
 shelltitle      "$ |bash"
 hardstatus      alwayslastline "%w%=%H  (%C%a %M %d %Y)  Load: %l"
+
+# start at window 1
+bind c screen 1
+bind ^c screen 1
+bind 0 select 10
+screen 1
