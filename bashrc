@@ -104,6 +104,9 @@ function set_prompt() {
   export PS1
 }
 
+function todo() { if [ $# == "0" ]; then cat $TODO; else echo "• $@" >> $TODO; fi }
+function todone() { sed -i -e "/$*/d" $TODO; }
+
 set_prompt
 
 # certain machines need some local settings that I don't want to store here
