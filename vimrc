@@ -31,6 +31,7 @@ set list                    " show invisibles
 set listchars=tab:▸\ ,eol:¬ " use same invisibles as TextMate
 set nobackup                " do not backup files
 set number                  " show line numbers
+set clipboard=unnamed       " copy/paste to clipboard
 set noswapfile              " also do not create swap files. I save often & use screen
 set laststatus=2            " always show a status line
 set statusline=%<\ %f\ %{fugitive#statusline()}%m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
