@@ -2,14 +2,6 @@
 
 # aliases
 if [[ -s "$HOME/.bash_aliases" ]]; then source "$HOME/.bash_aliases"; fi
-
-if [[ -x `which mate` ]]; then
-  export EDITOR="mate -w"
-elif [[ -x `which vim` ]]; then
-  export EDITOR=vim
-else
-  export EDITOR=vi
-fi
 # have a big history and share it across bashes
 export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=100000
