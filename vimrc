@@ -23,7 +23,10 @@ set wildmenu                " turn on tab completion menu
 set wildmode=list:longest   " make tab completion work like shell
 set scrolloff=5             " start scrolling viewport 5 lines ahead of cursor
 set pastetoggle=<F2>        " hit F2 before paste to avoid craziness
-set nofoldenable            " no code folding
+set nofoldenable            " no folding by default
+set foldmethod=syntax       " fold based on language syntax
+set foldnestmax=10          " deepest fold is 10 levels
+set foldlevel=1             " fold one level at a time
 set list                    " show invisibles
 set listchars=tab:▸\ ,eol:¬ " use same invisibles as TextMate
 set nobackup                " do not backup files
