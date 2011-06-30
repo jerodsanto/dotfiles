@@ -76,5 +76,12 @@ vmap <S-k> k
 nmap <S-l> vl
 vmap <S-l> l
 
-" remove trailing whitespace before write
-autocmd BufWritePre * :%s/\s\+$//e
+fun! StripTrailingWhitespace()
+    " Don't strip on these filetypes
+    if &ft =~ 'sql\|markdown'
+        return
+    endif
+    %s/\s\+$//e
+endfun
+
+autocmd BufWritePre * call StripTrailingWhitespace()
