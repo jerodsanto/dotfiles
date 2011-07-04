@@ -1,3 +1,18 @@
+// better domain names (thanks @there)
+var HTTP_SCHEME = /^https?:\/\//;
+
+$("span.comhead").each(function() {
+  var $span = $(this);
+  var href  = $span.prev().attr("href");
+
+  if (href && href.match(HTTP_SCHEME)) {
+    var h = href.replace(HTTP_SCHEME, "")
+                .replace(/\/.*/, "")
+                .replace(/^www\d*\./, "");
+    $span.html(" (" + h + ")");
+  }
+});
+
 // single item page
 if (window.location.pathname === "/item") {
   var $wrapper      = $("center table:first");
