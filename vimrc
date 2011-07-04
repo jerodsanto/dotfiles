@@ -36,6 +36,12 @@ set noswapfile              " also do not create swap files. I save often & use 
 set laststatus=2            " always show a status line
 set statusline=%<\ %f\ %{fugitive#statusline()}%m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
 let mapleader = ","         " this is much easier to type than default \
 " run Ack on word under cursor
 nnoremap <leader>a :Ack! <C-R><C-W><CR>
