@@ -107,9 +107,7 @@ function todone() { sed -i -e "/$*/d" $TODO; }
 
 set_prompt
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  source `brew --prefix`/etc/bash_completion
-fi
+if type brew &>/dev/null; then source `brew --prefix`/etc/bash_completion; fi
 if [[ -s "$HOME/.bash_aliases" ]]; then source "$HOME/.bash_aliases"; fi
 # certain machines need some local settings that I don't want to store here
 if [[ -s "$HOME/.bash_local" ]]; then source "$HOME/.bash_local"; fi
