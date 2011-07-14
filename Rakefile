@@ -1,30 +1,31 @@
-require 'fileutils'
-FILES = %w(bashrc bash_aliases gemrc gitconfig irbrc screenrc vimrc vim)
-HOME  = ENV["HOME"]
-PWD   = File.dirname(__FILE__)
+require "fileutils"
 
-def symlink(source, target)
-  puts "Linking #{target} => #{source}"
-  if File.exist? target
-    puts "  * deleting existing file #{target}"
-    FileUtils.rm_rf target
-  end
-  File.symlink source, target
+files = Dir["*[^README|Rakefile]"]
+home  = ENV["HOME"]
+
+def say(msg)
+  puts " * #{msg}"
 end
 
+task :default => [:install]
+
 desc "Install all dotfiles"
-task :install do
-  FILES.each do |file|
-    symlink "#{PWD}/#{file}", "#{HOME}/.#{file}"
+task :install => [:uninstall] do
+  files.each do |file|
+    source = File.expand_path(file)
+    target = "#{home}/.#{file}"
+    say "installing #{source} to #{target}"
+    File.symlink source, target
   end
-  puts "Installing Vim plugins"
-  system "vim -u #{HOME}/.vim/bundles.vim +BundleInstall +q"
+  say "installing vim plugins"
+  system "vim -u #{home}/.vim/bundles.vim +BundleInstall +q"
 end
 
 desc "Uninstall all dotfiles"
 task :uninstall do
-  FILES.each do |file|
-    puts "Deleting #{HOME}/.#{file}"
-    FileUtils.rm_f "#{HOME}/.#{file}"
+  files.each do |file|
+    target = "#{home}/.#{file}"
+    say "deleting #{target}"
+    FileUtils.rm_f target
   end
 end
