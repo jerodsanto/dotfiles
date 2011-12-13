@@ -28,9 +28,13 @@ fi
 
 if [[ -x `which htop` ]]; then alias top="htop"; fi
 
+alias bi="bundle install --binstubs=.bin"
+alias bx="bundle exec"
 # rails
 alias sc="script/console"
 alias ss="script/server"
+alias rc="rails console"
+alias rs="rails server"
 alias rr="rake routes"
 alias rdbm="rake db:migrate"
 alias rdbr="rake db:rollback"
