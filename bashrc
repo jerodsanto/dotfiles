@@ -77,11 +77,12 @@ function cd () {
   fi
   # do that rvm thang
   if type rvm &>/dev/null; then
-    local result=$?
-    __rvm_project_rvmrc
-    __rvm_after_cd
+    __rvm_do_with_env_before;
+    __rvm_project_rvmrc;
+    __rvm_after_cd;
+    __rvm_do_with_env_after;
     ls
-    return $result
+    return 0;
   else
     ls
   fi
