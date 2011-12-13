@@ -7,7 +7,7 @@ export HISTFILESIZE=100000
 shopt -s histappend
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 # rvm ftw, but it must be sourced before functions or it will override my "cd"
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
