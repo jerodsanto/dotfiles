@@ -51,30 +51,35 @@ endif
 
 let mapleader = ","         " this is much easier to type than default \
 " run Ack on word under cursor
-nnoremap <leader>a :Ack! <C-R><C-W><CR>
+nnoremap <leader>a :Ack! <C-R><C-W><cr>
 " quit just current buffer
-nnoremap <leader>q :bd<CR>
+nnoremap <leader>q :bd<cr>
 " ; is easier than :
 nnoremap ; :
 " easy access to nerd tree
-nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>d :NERDTreeToggle<cr>
 " toggles invisibles
-nnoremap <leader>i :set nolist!<CR>
+nnoremap <leader>i :set nolist!<cr>
 " easy pasting in command-line vim
-imap <leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
+imap <leader>v  <C-O>:set paste<cr><C-r>*<C-O>:set nopaste<cr>
 
 " use tab to navigate curly braces instead of %
 nmap <tab> %
 vmap <tab> %
 
 " <S-=> (aka - +) aligns variable assignments in visual mode
-vnoremap + :Align =<CR>
+vnoremap + :Align =<cr>
 
 " easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+" easy window resizing
+nnoremap <M-h> :vertical resize +1<cr>
+nnoremap <M-j> :resize -1<cr>
+nnoremap <M-k> :resize +1<cr>
+nnoremap <M-l> :vertical resize -1<cr>
 
 " sudo make me a sandwich
 cmap w!! w !sudo tee % > /dev/null
@@ -99,3 +104,4 @@ endfun
 
 autocmd BufWritePre * call StripTrailingWhitespace()
 autocmd FileType python setlocal tabstop=4|set shiftwidth=4
+au BufNewFile,BufRead *.json setf javascript
