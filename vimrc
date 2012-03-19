@@ -36,6 +36,7 @@ set noswapfile              " also do not create swap files. I save often & use 
 set laststatus=2            " always show a status line
 set statusline=%<\ %f\ %{fugitive#statusline()}%m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
+let NERDTreeIgnore=['\.pyc$']
 if exists('+colorcolumn')
   set colorcolumn=80
 else
@@ -91,3 +92,4 @@ fun! StripTrailingWhitespace()
 endfun
 
 autocmd BufWritePre * call StripTrailingWhitespace()
+autocmd FileType python setlocal tabstop=4|set shiftwidth=4
