@@ -1,5 +1,10 @@
 " Jerod Santo's Vim settings
 
+" make sure screen gets same color treatment as regular xterm
+if match($TERM, "screen") != -1
+  set term=xterm-256color
+endif
+
 colorscheme vividchalk " this will be overridden in gvimrc
 set nocompatible       " no vi compatibility
 set encoding=utf-8
@@ -39,6 +44,7 @@ set statusline=%<\ %f\ %{fugitive#statusline()}%m%r%y%=%-35.(line:\ %l\ of\ %L,\
 let NERDTreeIgnore=['\.pyc$']
 if exists('+colorcolumn')
   set colorcolumn=80
+  highlight ColorColumn ctermbg=DarkGray
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
