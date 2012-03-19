@@ -105,3 +105,4 @@ endfun
 autocmd BufWritePre * call StripTrailingWhitespace()
 autocmd FileType python setlocal tabstop=4|set shiftwidth=4
 au BufNewFile,BufRead *.json setf javascript
+au FileType crontab set nobackup nowritebackup
