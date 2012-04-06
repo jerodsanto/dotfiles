@@ -1,18 +1,9 @@
 # Jerod Santo's irb settings
 
-# load libraries
-require 'rubygems'
+require "rubygems"
 
 begin
-  require 'wirble'
-  Wirble.init
-  Wirble.colorize
-rescue LoadError
-  puts "*** wirble disabled ***"
-end
-
-begin
-  require 'ap'
+  require "awesome_print"
 
   IRB::Irb.class_eval do
     def output_value
@@ -21,34 +12,19 @@ begin
   end
 rescue LoadError
   puts "*** awesome_print disabled ***"
-  require 'pp'
+  require "pp"
 end
 
 begin
-  require 'interactive_editor'
+  require "interactive_editor"
 rescue LoadError
   puts "*** interactive_editor disabled ***"
-end
-
-
-# methods that are defined directly on this object's class
-class Object
-  def local_methods
-    (methods - self.class.superclass.instance_methods).sort
-  end
-end
-
-
-# includes Rails routes helpers
-def rails_routes
-  include ActionController::UrlWriter
-  default_url_options[:host] = 'example.com'
 end
 
 # quick benchmarking
 # based on rue's irbrc => http://pastie.org/179534
 def bm(repetitions=100, &block)
-  require 'benchmark'
+  require "benchmark"
 
   Benchmark.bmbm do |b|
     b.report {repetitions.times &block}
@@ -65,4 +41,12 @@ end
 # 3.0.X
 if defined? Rails::Console and Rails::VERSION::MINOR < 1
   ActiveRecord::Base.logger = Logger.new(STDOUT)
+end
+
+begin
+  require "pry"
+  Pry.start
+  exit
+rescue LoadError
+  puts "*** pry disabled ***"
 end
