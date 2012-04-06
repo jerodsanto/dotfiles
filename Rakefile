@@ -1,6 +1,6 @@
 require "fileutils"
 
-files = Dir["*[^README|Rakefile]"]
+files = Dir["*[^README|Rakefile|osx]"]
 home  = ENV["HOME"]
 
 def say(msg)
