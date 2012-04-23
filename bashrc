@@ -117,6 +117,14 @@ function set_prompt() {
 function todo() { if [ $# == "0" ]; then cat $TODO; else echo "• $@" >> $TODO; fi }
 function todone() { sed -i -e "/$*/d" $TODO; }
 
+function rm_trailing_whitespace() {
+  exts=(rb html js coffee css scss erb yml ru)
+  for ext in "${exts[@]}"
+  do
+    find . -name "*.$ext" -print0 | xargs -0 sed -i '' -E "s/[[:blank:]]+$//"
+  done
+}
+
 set_prompt
 
 # certain machines need some local settings that I don't want to store here
