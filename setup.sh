@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 home=${HOME-"~"}
 me=${BASH_SOURCE[0]}
 dir=$( cd $( dirname $me ) && pwd )
@@ -9,7 +9,7 @@ if [[ "$1" == "install" ]]; then
     src=$dir/$link
     dest=$home/.$link
     echo "linking $src to $dest"
-    ln -s $src $dest
+    ln -nfs $src $dest
   done
   echo "installing vim plugins"
   vim -u $home/.vim/bundles.vim +BundleInstall +qall
