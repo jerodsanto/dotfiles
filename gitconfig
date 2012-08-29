@@ -1,15 +1,21 @@
 # Jerod Santo's git settings
-[core]
-  excludesfile = /Users/jerod/.gitexcludes
-  autocrlf = input
-
 [user]
   name = Jerod Santo
   email = jerod.santo@gmail.com
 
+[core]
+  excludesfile = /Users/jerod/.gitexcludes
+  autocrlf = input
+
+
 [alias]
+  a = add
+  aa = add --all
+  c = commit
   co = checkout
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  d = diff
+  lg = log --graph --decorate --oneline
+  st = status
 
 [apply]
   whitespace = nowarn
@@ -35,5 +41,5 @@
   changed = green
   untracked = cyan
 [branch "master"]
-	remote = origin
-	merge = refs/heads/master
+  remote = origin
+  merge = refs/heads/master
