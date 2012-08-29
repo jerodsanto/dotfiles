@@ -28,31 +28,15 @@ fi
 
 if [[ -x `which htop` ]]; then alias top="htop"; fi
 
-alias bi="bundle install --binstubs=.bin"
+# bundler
+alias bi="bundle install --path .bundle/gems --binstubs .bundle/bin"
 alias bx="bundle exec"
+
 # rails
-alias sc="script/console"
-alias ss="script/server"
-alias rc="rails console"
-alias rs="rails server"
+alias r="rails"
 alias rr="rake routes"
 alias rdbm="rake db:migrate"
 alias rdbr="rake db:rollback"
 alias rdbtp="rake db:test:prepare"
 alias rdbmtp="rake db:migrate && rake db:test:prepare"
 alias annotate="annotate --position before --show-indexes --exclude tests,fixtures"
-
-# git
-alias ga="git add"
-alias gst="git status"
-alias gp="git push"
-alias gpom="git push origin master"
-alias gl="git pull"
-alias glom="git pull origin master"
-alias gf="git fetch"
-alias gc="git commit -v"
-alias gca="git commit -v -a"
-alias gb="git branch"
-alias gba="git branch -a"
-alias gd="git diff"
-alias gh="github"
