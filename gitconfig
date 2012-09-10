@@ -10,11 +10,16 @@
 
 [alias]
   a = add
+  b = branch
   aa = add --all
-  c = commit
+  amend = commit --amend
+  ci = commit
   co = checkout
-  d = diff
-  lg = log --graph --decorate --oneline
+  di = diff
+  dc = diff --cached
+  ff = merge --ff-only
+  lg = log --graph --decorate=full --oneline
+  pom = push origin master
   st = status
 
 [apply]
