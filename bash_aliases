@@ -13,6 +13,9 @@ alias grep="grep --color=always"
 alias md="mkdir -p"
 alias e="$EDITOR"
 alias lol="echo oh no you didn\'t\!"
+alias rspec="rspec --color"
+alias gti="git"
+alias serve="python -m SimpleHTTPServer"
 
 if [[ `uname` = "Darwin" ]]; then
   alias listening="netstat -an | grep LISTEN | grep -v STREAM"
