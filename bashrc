@@ -19,7 +19,9 @@ elif [[ -s "/usr/local/rvm/scripts/rvm" ]]; then
   source "/usr/local/rvm/scripts/rvm"
 fi
 
-if type brew &>/dev/null; then source `brew --prefix`/etc/bash_completion; fi
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 if [[ -s "$HOME/.bash_aliases" ]]; then source "$HOME/.bash_aliases"; fi
 
 # removes returns for "grep" on greps of ps output
