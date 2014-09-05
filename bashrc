@@ -42,7 +42,7 @@ function mvcd() { mv $1 $2 && cd $2; }
 function scphh() { scp $1 $2  && ssh `echo $2 | sed ''s/:.*$//''` ; }
 
 # print external IP address
-function my_external_ip() { wget "http://my-ip.heroku.com" -O - -o /dev/null; }
+function my_external_ip() { wget "http://my-ip.herokuapp.com" -O - -o /dev/null; }
 
 function my_path() { IFS=":"; for p in $PATH; do echo $p; done }
 
@@ -127,7 +127,15 @@ function rm_trailing_whitespace() {
   done
 }
 
-set_prompt
+function gen_pw() {
+  local l=$1
+  [ "$l" == "" ] && l=16
+  LC_CTYPE=C tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${l} | xargs
+}
+
+if [ -t 0 ]; then
+  set_prompt
+fi
 
 # certain machines need some local settings that I don't want to store here
 if [[ -s "$HOME/.bash_local" ]]; then source "$HOME/.bash_local"; fi
