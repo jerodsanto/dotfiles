@@ -9,6 +9,9 @@
 
 
 [alias]
+  p = push
+  l = pull
+  f = fetch
   a = add
   b = branch
   aa = add --all
@@ -19,8 +22,9 @@
   dc = diff --cached
   ff = merge --ff-only
   lg = log --graph --decorate=full --oneline
-  pom = push origin master
   st = status
+  summary = shortlog -ns
+  nuke = !git clean -f -d && git reset --hard
 
 [apply]
   whitespace = nowarn
