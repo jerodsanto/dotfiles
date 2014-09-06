@@ -1,1 +1,3 @@
 \timing
+\pset null '(null)'
+\set HISTFILE ~/.psql/history- :DBNAME
