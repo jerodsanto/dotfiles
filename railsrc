@@ -1,1 +1,1 @@
---database=postgresql --skip-bundle --skip-test-unit
+--database=postgresql --skip-bundle --skip-test-unit --skip-keeps
