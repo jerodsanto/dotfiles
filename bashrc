@@ -1,13 +1,13 @@
 # Jerod Santo's Bash settings
 
+if [[ -s "$HOME/.bash_aliases" ]]; then source "$HOME/.bash_aliases"; fi
+
 # have a big history and share it across bashes
 export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=100000
 export HISTFILESIZE=100000
 shopt -s histappend
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
-# vim is the de facto
 export EDITOR=vim
 
 export PATH="$HOME/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:$PATH"
@@ -19,10 +19,11 @@ elif [[ -s "/usr/local/rvm/scripts/rvm" ]]; then
   source "/usr/local/rvm/scripts/rvm"
 fi
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if command -v brew > /dev/null; then
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
 fi
-if [[ -s "$HOME/.bash_aliases" ]]; then source "$HOME/.bash_aliases"; fi
 
 # removes returns for "grep" on greps of ps output
 function pps() { ps aux | grep "$@" | grep -v "grep"; }
@@ -48,9 +49,6 @@ function my_path() { IFS=":"; for p in $PATH; do echo $p; done }
 
 # count number of files in current directory recursively
 function file_count() { find . -type f | wc -l; }
-
-# open man pages in textmate
-function mman() { man "$@" | col -bx | mate; }
 
 # determine current git branch
 function parse_git_branch() {
