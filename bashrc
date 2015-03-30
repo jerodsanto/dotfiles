@@ -131,6 +131,16 @@ function gen_pw() {
   LC_CTYPE=C tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${l} | xargs
 }
 
+function finder_show_hidden() {
+  defaults write com.apple.finder AppleShowAllFiles YES
+  killall Finder /System/Library/CoreServices/Finder.app
+}
+
+function finder_hide_hidden() {
+  defaults write com.apple.finder AppleShowAllFiles NO
+  killall Finder /System/Library/CoreServices/Finder.app
+}
+
 if [ -t 0 ]; then
   set_prompt
 fi
