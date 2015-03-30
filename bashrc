@@ -107,9 +107,9 @@ function screen() {
 }
 
 function set_prompt() {
-  local GREEN='\[\033[0;32m\]'
-  local WHITE='\[\033[1;37m\]'
-  local NULL='\[\033k\033\\\]'
+  local GREEN='\e[0;32m'
+  local WHITE='\e[0;37m'
+  local NULL='\e[0m'
   PS1="$NULL\u@\h:\w$GREEN\$(parse_git_branch)$WHITE$ "
   export PS1
 }
