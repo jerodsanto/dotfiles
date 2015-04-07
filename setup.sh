@@ -2,7 +2,7 @@
 home=${HOME-"~"}
 me=${BASH_SOURCE[0]}
 dir=$( cd $( dirname $me ) && pwd )
-linkables=(*rc bash_aliases gitconfig gitexcludes vim js)
+linkables=(*rc *.conf bash_aliases gitconfig gitexcludes vim js)
 
 if [[ "$1" == "install" ]]; then
   for link in "${linkables[@]}"; do
