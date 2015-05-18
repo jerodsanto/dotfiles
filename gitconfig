@@ -14,6 +14,7 @@
   f = fetch
   a = add
   b = branch
+  ba = branch -a
   aa = add --all
   amend = commit --amend
   ci = commit
