@@ -17,6 +17,7 @@ alias rspec="rspec --color"
 alias gti="git"
 alias serve="python -m SimpleHTTPServer"
 alias screen="tmux"
+alias chrome="open -a Google\ Chrome"
 
 if [[ `uname` = "Darwin" ]]; then
   alias listening="netstat -an | grep LISTEN | grep -v STREAM"
@@ -32,15 +33,8 @@ fi
 
 if [[ -x `which htop` ]]; then alias top="htop"; fi
 
-# bundler
-alias bi="bundle install --path .bundle/gems --binstubs .bundle/bin"
 alias bx="bundle exec"
-
-# rails
 alias r="rails"
 alias rr="rake routes"
 alias rdbm="rake db:migrate"
-alias rdbr="rake db:rollback"
-alias rdbtp="rake db:test:prepare"
 alias rdbmtp="rake db:migrate && rake db:test:prepare"
-alias annotate="annotate --position before --show-indexes --exclude tests,fixtures"
