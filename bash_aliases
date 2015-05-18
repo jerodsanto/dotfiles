@@ -16,6 +16,7 @@ alias lol="echo oh no you didn\'t\!"
 alias rspec="rspec --color"
 alias gti="git"
 alias serve="python -m SimpleHTTPServer"
+alias screen="tmux"
 
 if [[ `uname` = "Darwin" ]]; then
   alias listening="netstat -an | grep LISTEN | grep -v STREAM"

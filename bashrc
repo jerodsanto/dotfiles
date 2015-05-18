@@ -93,19 +93,6 @@ function cd () {
   fi
 }
 
-# allow for preset screen sessions and use working directory for name
-function screen() {
-  super=`which screen`
-  session=`basename $PWD`
-  if [ "$1" == "" ]; then
-    $super -S $session
-  elif [ "$1" == "rails" ]; then
-    $super -S $session -c $HOME/.screenrailsrc
-  else
-    $super $@
-  fi
-}
-
 function set_prompt() {
   local GREEN='\e[0;32m'
   local WHITE='\e[0;37m'
