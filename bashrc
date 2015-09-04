@@ -94,11 +94,7 @@ function cd () {
 }
 
 function set_prompt() {
-  local GREEN='\e[0;32m'
-  local WHITE='\e[0;37m'
-  local NULL='\e[0m'
-  PS1="$NULL\u@\h:\w$GREEN\$(parse_git_branch)$WHITE$ "
-  export PS1
+  export PS1="\[$(tput setaf 7)\]\u@\h:\w\[$(tput setaf 2)\]\$(parse_git_branch)\[$(tput setaf 7)\]$ \[$(tput sgr0)\]"
 }
 
 function todo() { if [ $# == "0" ]; then cat $TODO; else echo "• $@" >> $TODO; fi }
