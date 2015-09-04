@@ -43,7 +43,7 @@ function mvcd() { mv $1 $2 && cd $2; }
 function scphh() { scp $1 $2  && ssh `echo $2 | sed ''s/:.*$//''` ; }
 
 # print external IP address
-function my_external_ip() { wget "http://my-ip.herokuapp.com" -O - -o /dev/null; }
+function my_external_ip() { curl -s http://jsonip.com | jq '.["ip"]'; }
 
 function my_path() { IFS=":"; for p in $PATH; do echo $p; done }
 
