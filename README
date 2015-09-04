@@ -1,7 +1,0 @@
-Here lies Jerod Santo's configuration files. Enjoy.
-
-INSTALLATION:
-
-1) git clone git://github.com/sant0sk1/dotfiles.git $HOME/.dotfiles
-2) cd $HOME/.dotfiles && ./setup.sh install
-3) Enjoy
