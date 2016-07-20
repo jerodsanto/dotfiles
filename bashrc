@@ -28,6 +28,9 @@ fi
 # removes returns for "grep" on greps of ps output
 function pps() { ps aux | grep "$@" | grep -v "grep"; }
 
+# kills all processes returned by `pps`
+function ppsk() { pps $@ | awk '{print $2}' | xargs kill -9; }
+
 # easy access to find's size search
 function find_big_files() { find "${1-.}" -size +10000k -exec du -h {} \; | sort -nr; }
 
