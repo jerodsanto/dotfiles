@@ -1,4 +1,9 @@
-# general
+alias d="docker"
+alias e="$EDITOR"
+alias g="git"
+alias h="history"
+alias r="rails"
+
 alias la="ls -A"
 alias sl="ls"
 alias ll="ls -lh"
@@ -7,17 +12,19 @@ alias lls="ls -lhS"
 alias llsr="ls -lhSr"
 alias lld="ls -lht"
 alias lldr="ls -lhtr"
-alias h="history"
+
 alias rdp="rdesktop -a 16 -k en-us -u administrator"
 alias grep="grep --color=always"
 alias md="mkdir -p"
-alias e="$EDITOR"
-alias lol="echo oh no you didn\'t\!"
 alias rspec="rspec --color"
 alias gti="git"
 alias serve="python -m SimpleHTTPServer"
 alias screen="tmux"
 alias chrome="open -a Google\ Chrome"
+
+alias rr="rake routes"
+alias rdbm="rake db:migrate"
+alias rdbmtp="rake db:migrate && rake db:test:prepare"
 
 if [[ `uname` = "Darwin" ]]; then
   alias listening="netstat -an | grep LISTEN | grep -v STREAM"
@@ -32,9 +39,3 @@ else
 fi
 
 if [[ -x `which htop` ]]; then alias top="htop"; fi
-
-alias bx="bundle exec"
-alias r="rails"
-alias rr="rake routes"
-alias rdbm="rake db:migrate"
-alias rdbmtp="rake db:migrate && rake db:test:prepare"
