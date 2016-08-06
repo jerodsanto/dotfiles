@@ -131,5 +131,11 @@ if [ -t 0 ]; then
   set_prompt
 fi
 
+# source direnv if machine has it installed
+if command -v direnv > /dev/null; then
+  eval "$(direnv hook bash)"
+fi
+
+
 # certain machines need some local settings that I don't want to store here
 if [[ -s "$HOME/.bash_local" ]]; then source "$HOME/.bash_local"; fi
