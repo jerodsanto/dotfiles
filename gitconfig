@@ -1,7 +1,7 @@
 # Jerod Santo's git settings
 [user]
   name = Jerod Santo
-  email = jerod.santo@gmail.com
+  useConfigOnly=true
 
 [core]
   excludesfile = /Users/jerod/.gitexcludes
