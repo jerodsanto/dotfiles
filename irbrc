@@ -35,13 +35,3 @@ if defined? ActiveRecord
   end
 end
 
-# send Rails logs to console
-# 2.X
-if ENV.include?("RAILS_ENV") && !Object.const_defined?("RAILS_DEFAULT_LOGGER")
-  require "logger"
-  Object.const_set "RAILS_DEFAULT_LOGGER", Logger.new(STDOUT)
-end
-# 3.0.X
-if defined? Rails::Console and Rails::VERSION::MINOR < 1
-  ActiveRecord::Base.logger = Logger.new(STDOUT)
-end
