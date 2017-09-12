@@ -1,3 +1,4 @@
+\x auto
 \set QUIET 1
 \timing on
 \set ON_ERROR_ROLLBACK interactive
