@@ -20,6 +20,7 @@ alias rspec="rspec --color"
 alias gti="git"
 alias serve="python -m SimpleHTTPServer"
 alias screen="tmux"
+alias mux="tmuxinator"
 alias chrome="open -a Google\ Chrome"
 
 alias rr="rake routes"
