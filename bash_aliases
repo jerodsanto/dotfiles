@@ -1,4 +1,5 @@
 alias d="docker"
+alias dc="docker-compose"
 alias e="$EDITOR"
 alias g="git"
 alias h="history"
