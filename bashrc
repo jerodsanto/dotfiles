@@ -142,6 +142,14 @@ function man() {
   command man "$@"
 }
 
+function yta() {
+  youtube-dl -ci -f "bestaudio[ext=m4a]" $1
+}
+
+function ytv() {
+  youtube-dl -f 'bestvideo[ext=mp4]' $1
+}
+
 if [ -t 0 ]; then
   set_prompt
 fi
