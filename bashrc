@@ -100,6 +100,9 @@ function cd () {
 function set_prompt() {
   export PS1="\[$(tput setaf 7)\]\u@\h:\w\[$(tput setaf 2)\]\$(parse_git_branch)\[$(tput setaf 7)\]$ \[$(tput sgr0)\]"
 }
+function basic_prompt() {
+  export PS1="$ \[$(tput sgr0)\]"
+}
 
 function todo() { if [ $# == "0" ]; then cat $TODO; else echo "• $@" >> $TODO; fi }
 function todone() { sed -i -e "/$*/d" $TODO; }
