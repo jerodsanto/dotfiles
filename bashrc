@@ -13,13 +13,6 @@ export EDITOR=vim
 export PATH="$HOME/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-# rvm ftw, but it must be sourced before functions or it will override my "cd"
-if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
-  source "$HOME/.rvm/scripts/rvm"
-elif [[ -s "/usr/local/rvm/scripts/rvm" ]]; then
-  source "/usr/local/rvm/scripts/rvm"
-fi
-
 if command -v brew > /dev/null; then
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
@@ -83,17 +76,6 @@ function cd () {
     fi
   else
     builtin cd "$@"
-  fi
-  # do that rvm thang
-  if type rvm &>/dev/null; then
-    __rvm_do_with_env_before;
-    __rvm_project_rvmrc;
-    __rvm_after_cd;
-    __rvm_do_with_env_after;
-    ls
-    return 0;
-  else
-    ls
   fi
 }
 
