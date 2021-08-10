@@ -6,6 +6,7 @@ if [[ -s "$HOME/.bash_aliases" ]]; then source "$HOME/.bash_aliases"; fi
 export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=100000
 export HISTFILESIZE=100000
+export HISTIGNORE="cd:clear:exit:pwd"
 shopt -s histappend
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export EDITOR=vim
