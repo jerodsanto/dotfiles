@@ -23,6 +23,7 @@ alias serve="python3 -m http.server"
 alias screen="tmux"
 alias mux="tmuxinator"
 alias chrome="open -a Google\ Chrome"
+alias vim="nvim"
 
 alias rr="rake routes"
 alias rdbm="rake db:migrate"
