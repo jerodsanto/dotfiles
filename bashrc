@@ -77,6 +77,8 @@ function cd () {
   else
     builtin cd "$@"
   fi
+  # pretty much do this regardless
+  ls
 }
 
 function set_prompt() {
