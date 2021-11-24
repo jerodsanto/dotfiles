@@ -54,6 +54,6 @@
   remote = origin
   merge = refs/heads/master
 [rebase]
-	autostash = true
+  autostash = true
 [pull]
-	ff = only
+  ff = only
